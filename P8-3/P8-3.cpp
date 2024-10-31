@@ -32,13 +32,13 @@ int convertRomanToInt(string s)
 
         if (firstValue >= secondValue || i + 1 == length)
         {
-            total = total + firstValue;
+            total += firstValue;
             i++;
         }
         else
         {
             total += secondValue - firstValue;
-            i = i + 2;
+            i += 2;
         }
     }
     return total;
@@ -46,11 +46,21 @@ int convertRomanToInt(string s)
 
 int main()
 {
-    cout << "Value of 'M': " << romanCharValue('M') << endl;
-    cout << "Value of 'C': " << romanCharValue('C') << endl;
-    cout << "Value of 'X': " << romanCharValue('X') << endl;
-    cout << "Value of 'IX': " << convertRomanToInt("IX") << endl;
-    cout << "Value of 'MCMXCIV': " << convertRomanToInt("MCMXCIV") << endl;
+    string input;
+
+    while (true)
+    {
+        cout << "Enter Roman number or Q to quit: ";
+        cin >> input;
+
+        if (input == "Q" || input == "q")
+        {
+            break;
+        }
+
+        int value = convertRomanToInt(input);
+        cout << input << " = " << value << endl;
+    }
 
     return 0;
 }
